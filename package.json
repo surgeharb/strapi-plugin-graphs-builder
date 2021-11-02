@@ -1,25 +1,30 @@
 {
   "name": "strapi-plugin-graphs-builder",
   "version": "0.0.0",
-  "description": "This is the description of the plugin.",
+  "description": "A plugin for Strapi Headless CMS that provides graphs building tool to generate custom dashboards and reports with the data inside Strapi's database.",
   "strapi": {
     "name": "Graphs Builder",
     "icon": "chart-bar",
-    "description": "Description of graphs-builder plugin."
+    "description": "A plugin for Strapi Headless CMS that provides graphs building tool to generate custom dashboards and reports with the data inside Strapi's database."
+  },
+  "scripts": {
+    "publish:patch": "npm version patch && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:major": "npm version major && npm publish"
   },
   "dependencies": {
     "@strapi/icons": "0.0.1-alpha.56"
   },
   "author": {
-    "name": "A Strapi developer",
-    "email": "",
-    "url": ""
+    "name": "Serge Harb",
+    "email": "me@sergeharb.com",
+    "url": "https://github.com/surgeharb"
   },
   "maintainers": [
     {
-      "name": "A Strapi developer",
-      "email": "",
-      "url": ""
+      "name": "Serge Harb",
+      "email": "me@sergeharb.com",
+      "url": "https://github.com/surgeharb"
     }
   ],
   "engines": {
