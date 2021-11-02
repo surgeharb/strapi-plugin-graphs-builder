@@ -4,7 +4,7 @@ module.exports = [
   {
     method: 'GET',
     path: '/',
-    handler: 'graphs-builder.index',
+    handler: 'custom.sendWelcome',
     config: {
       policies: [],
     },

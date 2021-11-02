@@ -2,6 +2,8 @@
 
 A plugin for [Strapi Headless CMS](https://github.com/strapi/strapi) that provides graphs building tool to generate custom dashboards and reports with the data inside Strapi's database.
 
+![Preview Image](./assets/images/preview.png)
+
 ### ⏳ Installation
 
 (Use **yarn** to install this plugin within your Strapi project (recommended). [Install yarn with these docs](https://yarnpkg.com/lang/en/docs/install/).)
