@@ -9,6 +9,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { NotFound } from '@strapi/helper-plugin';
 import pluginId from '../../pluginId';
+
+import CreateGraph from '../CreateGraph';
 import HomePage from '../HomePage';
 
 const App = () => {
@@ -16,6 +18,7 @@ const App = () => {
     <div>
       <Switch>
         <Route path={`/plugins/${pluginId}`} component={HomePage} exact />
+        <Route path={`/plugins/${pluginId}/graphs/create-graph`} component={CreateGraph} exact />
         <Route component={NotFound} />
       </Switch>
     </div>

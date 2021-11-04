@@ -13,7 +13,8 @@
     "publish:major": "npm version major && npm publish"
   },
   "dependencies": {
-    "@strapi/icons": "0.0.1-alpha.56"
+    "@strapi/icons": "0.0.1-alpha.56",
+    "recharts": "^2.1.6"
   },
   "author": {
     "name": "Serge Harb",
