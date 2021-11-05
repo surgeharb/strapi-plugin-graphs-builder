@@ -1,17 +1,17 @@
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
 import pluginPkg from '../../package.json';
 import pluginId from './pluginId';
+import GraphIcon from './components/GraphIcon';
 import Initializer from './components/Initializer';
 
 const pluginDescription = pluginPkg.strapi.description || pluginPkg.description;
-const icon = pluginPkg.strapi.icon;
 const name = pluginPkg.strapi.name;
 
 export default {
   register(app) {
     app.addMenuLink({
       to: `/plugins/${pluginId}`,
-      icon,
+      icon: GraphIcon,
       intlLabel: {
         id: `${pluginId}.plugin.name`,
         defaultMessage: name,
@@ -21,21 +21,9 @@ export default {
 
         return component;
       },
-      permissions: [
-        // Uncomment to set the permissions of the plugin here
-        // {
-        //   action: '', // the action name should be plugin::plugin-name.actionType
-        //   subject: null,
-        // },
-      ],
     });
     app.registerPlugin({
-      description: pluginDescription,
-      icon,
       id: pluginId,
-      initializer: Initializer,
-      isReady: false,
-      isRequired: pluginPkg.strapi.required || false,
       name,
     });
   },

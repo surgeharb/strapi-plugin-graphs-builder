@@ -7,8 +7,8 @@
 import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 
-import { Box } from '@strapi/parts/Box';
-import { Card } from '@strapi/parts/Card';
+import { Box } from '@strapi/design-system/Box';
+import { Card } from '@strapi/design-system/Card';
 
 const GraphCard = ({ title }) => {
   const data = [

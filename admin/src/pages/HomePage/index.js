@@ -13,10 +13,10 @@ import Plus from '@strapi/icons/Plus';
 import ArrowLeft from '@strapi/icons/ArrowLeft';
 import EmptyDocuments from '@strapi/icons/EmptyDocuments';
 
-import { Box } from '@strapi/parts/Box';
-import { LinkButton } from '@strapi/parts/LinkButton';
-import { Layout, BaseHeaderLayout } from '@strapi/parts/Layout';
-import { EmptyStateLayout } from '@strapi/parts/EmptyStateLayout';
+import { Box } from '@strapi/design-system/Box';
+import { LinkButton } from '@strapi/design-system/LinkButton';
+import { Layout, BaseHeaderLayout } from '@strapi/design-system/Layout';
+import { EmptyStateLayout } from '@strapi/design-system/EmptyStateLayout';
 
 const HomePage = () => {
   const [graphs, setGraphs] = React.useState([]);

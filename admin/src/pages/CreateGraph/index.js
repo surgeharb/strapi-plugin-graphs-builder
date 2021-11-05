@@ -16,10 +16,10 @@ import Pencil from '@strapi/icons/Pencil';
 import ArrowLeft from '@strapi/icons/ArrowLeft';
 import EmptyDocuments from '@strapi/icons/EmptyDocuments';
 
-import { Box } from '@strapi/parts/Box';
-import { Link } from '@strapi/parts/Link';
-import { Button } from '@strapi/parts/Button';
-import { ModalLayout, HeaderLayout } from '@strapi/parts/Layout';
+import { Box } from '@strapi/design-system/Box';
+import { Link } from '@strapi/design-system/Link';
+import { Button } from '@strapi/design-system/Button';
+import { ModalLayout, HeaderLayout } from '@strapi/design-system/Layout';
 
 const CreateGraph = () => {
   const goBack = () => {
@@ -32,6 +32,7 @@ const CreateGraph = () => {
   };
 
   useEffect(async () => {
+    // 401 error when called from admin
     // const response = await axiosInstance.get(`/api/${pluginId}/collections`);
   }, []);
 
