@@ -6,7 +6,7 @@ module.exports = ({ strapi }) => {
   let savedCollections = [];
 
   const getCollections = () => {
-    return savedContentTypes;
+    return savedCollections;
   };
 
   const updateCollections = () => {

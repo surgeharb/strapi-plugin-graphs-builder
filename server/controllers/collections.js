@@ -1,10 +1,10 @@
 'use strict';
 
+const { getService } = require('../utils');
+
 module.exports = {
   getCollections(ctx) {
-    console.log('hola');
-    const collections = getService('content-types').getCollections();
-    console.log('hola');
+    const collections = getService('collections').getCollections();
     ctx.body = {
       collections,
     };
