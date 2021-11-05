@@ -1,12 +1,7 @@
 'use strict';
 
-module.exports = [
-  {
-    method: 'GET',
-    path: '/',
-    handler: 'custom.sendWelcome',
-    config: {
-      policies: [],
-    },
-  },
-];
+const api = require('./content-api');
+
+module.exports = {
+  'content-api': api,
+};

@@ -1,3 +1,7 @@
 'use strict';
 
-module.exports = () => ({});
+const collections = require('./collections');
+
+module.exports = {
+  collections,
+};

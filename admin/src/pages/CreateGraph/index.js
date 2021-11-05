@@ -4,10 +4,11 @@
  *
  */
 
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import pluginId from '../../pluginId';
 import GraphCard from '../../components/GraphCard';
+import axiosInstance from '../../utils/axiosInstance';
 
 import Plus from '@strapi/icons/Plus';
 import Check from '@strapi/icons/Check';
@@ -29,6 +30,10 @@ const CreateGraph = () => {
     alert('Save Graph!');
     window.location = `/plugins/${pluginId}`;
   };
+
+  useEffect(async () => {
+    // const response = await axiosInstance.get(`/api/${pluginId}/collections`);
+  }, []);
 
   return (
     <Box background="neutral100">
