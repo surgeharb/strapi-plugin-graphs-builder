@@ -1,7 +1,6 @@
 'use strict';
 
-const api = require('./content-api');
-
 module.exports = {
-  'content-api': api,
+  admin: require('./admin'),
+  'content-api': require('./content-api'),
 };

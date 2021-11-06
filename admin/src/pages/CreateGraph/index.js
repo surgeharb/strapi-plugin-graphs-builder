@@ -8,6 +8,7 @@ import React, { memo, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import pluginId from '../../pluginId';
 import GraphCard from '../../components/GraphCard';
+import CollectionSelect from '../../components/CollectionSelect';
 import axiosInstance from '../../utils/axiosInstance';
 
 import Plus from '@strapi/icons/Plus';
@@ -22,6 +23,8 @@ import { Button } from '@strapi/design-system/Button';
 import { ModalLayout, HeaderLayout } from '@strapi/design-system/Layout';
 
 const CreateGraph = () => {
+  const [collections, setCollections] = React.useState([]);
+
   const goBack = () => {
     window.location = `/plugins/${pluginId}`;
   };
@@ -32,8 +35,8 @@ const CreateGraph = () => {
   };
 
   useEffect(async () => {
-    // 401 error when called from admin
-    // const response = await axiosInstance.get(`/api/${pluginId}/collections`);
+    const response = await axiosInstance.get(`/${pluginId}/collections`);
+    setCollections(response.data.collections);
   }, []);
 
   return (
@@ -57,6 +60,9 @@ const CreateGraph = () => {
         title="Create new Graph"
         as="h2"
       />
+      <Box padding={8}>
+        <CollectionSelect data={collections} />
+      </Box>
       <Box padding={8} style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
         {Array(7)
           .fill('')
