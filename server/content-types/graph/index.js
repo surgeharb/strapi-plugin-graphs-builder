@@ -21,6 +21,22 @@ module.exports = {
       configurable: false,
       required: true,
     },
+    type: {
+      type: 'enumeration',
+      enum: ['pie', 'line'],
+      configurable: false,
+      required: true,
+    },
+    collectionX: {
+      type: 'string',
+      configurable: false,
+      required: true,
+    },
+    collectionXAttribute: {
+      type: 'string',
+      configurable: false,
+      required: true,
+    },
   },
 
   config: schemaConfig,

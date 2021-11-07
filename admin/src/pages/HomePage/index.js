@@ -8,6 +8,7 @@ import React, { memo } from 'react';
 // import PropTypes from 'prop-types';
 import pluginId from '../../pluginId';
 import GraphCard from '../../components/GraphCard';
+import axiosInstance from '../../utils/axiosInstance';
 
 import Plus from '@strapi/icons/Plus';
 import ArrowLeft from '@strapi/icons/ArrowLeft';
@@ -20,6 +21,11 @@ import { EmptyStateLayout } from '@strapi/design-system/EmptyStateLayout';
 
 const HomePage = () => {
   const [graphs, setGraphs] = React.useState([]);
+
+  React.useEffect(async () => {
+    const response = await axiosInstance.get(`/${pluginId}/graphs`);
+    setGraphs(response.data);
+  }, []);
 
   return (
     <Box background="neutral100">
@@ -53,7 +59,7 @@ const HomePage = () => {
         )}
         <Box padding={8} style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
           {graphs.map(() => (
-            <GraphCard />
+            <GraphCard title="Graph title" graphType={i % 2 ? 'line' : 'pie'} />
           ))}
         </Box>
       </Layout>
