@@ -1,11 +1,9 @@
 'use strict';
 
-const custom = require('./custom');
-const graphs = require('./graphs');
-const collections = require('./collections');
+const graph = require('./graphsController');
+const collection = require('./collectionsController');
 
 module.exports = {
-  collections,
-  graphs,
-  custom,
+  collection,
+  graph,
 };

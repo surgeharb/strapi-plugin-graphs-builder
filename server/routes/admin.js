@@ -6,7 +6,7 @@ module.exports = {
     {
       method: 'GET',
       path: '/collections',
-      handler: 'collections.getCollections',
+      handler: 'collection.getCollections',
       config: {
         policies: ['admin::isAuthenticatedAdmin'],
       },
@@ -14,7 +14,7 @@ module.exports = {
     {
       method: 'GET',
       path: '/graphs',
-      handler: 'graphs.find',
+      handler: 'graph.find',
       config: {
         policies: ['admin::isAuthenticatedAdmin'],
       },
@@ -22,7 +22,39 @@ module.exports = {
     {
       method: 'GET',
       path: '/graphs/:id',
-      handler: 'graphs.findOne',
+      handler: 'graph.findOne',
+      config: {
+        policies: ['admin::isAuthenticatedAdmin'],
+      },
+    },
+    {
+      method: 'GET',
+      path: '/graphs/count',
+      handler: 'graph.count',
+      config: {
+        policies: ['admin::isAuthenticatedAdmin'],
+      },
+    },
+    {
+      method: 'POST',
+      path: '/graphs',
+      handler: 'graph.create',
+      config: {
+        policies: ['admin::isAuthenticatedAdmin'],
+      },
+    },
+    {
+      method: 'PUT',
+      path: '/graphs/:id',
+      handler: 'graph.update',
+      config: {
+        policies: ['admin::isAuthenticatedAdmin'],
+      },
+    },
+    {
+      method: 'DELETE',
+      path: '/graphs/:id',
+      handler: 'graph.destroy',
       config: {
         policies: ['admin::isAuthenticatedAdmin'],
       },

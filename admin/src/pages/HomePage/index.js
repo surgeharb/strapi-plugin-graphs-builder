@@ -41,7 +41,7 @@ const HomePage = () => {
           as="h2"
         />
         {!graphs.length && (
-          <Box padding={8} background="neutral100">
+          <Box background="neutral100" style={{ padding: '0 56px' }}>
             <EmptyStateLayout
               icon={<EmptyDocuments width="10rem" />}
               content="You don't have any graphs yet..."
@@ -57,7 +57,14 @@ const HomePage = () => {
             />
           </Box>
         )}
-        <Box padding={8} style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <Box
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            padding: '0 56px',
+          }}
+        >
           {graphs.map(() => (
             <GraphCard title="Graph title" graphType={i % 2 ? 'line' : 'pie'} />
           ))}

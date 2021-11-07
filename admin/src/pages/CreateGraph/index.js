@@ -5,7 +5,6 @@
  */
 
 import React, { memo, useEffect } from 'react';
-// import PropTypes from 'prop-types';
 import pluginId from '../../pluginId';
 import GraphCard from '../../components/GraphCard';
 import CollectionSelect from '../../components/CollectionSelect';
@@ -30,7 +29,6 @@ const CreateGraph = () => {
   const [graphType, setGraphType] = React.useState('pie');
   const [graphTitle, setGraphTitle] = React.useState('');
   const [collectionX, setCollectionX] = React.useState();
-  console.log('🚀 ~ file: index.js ~ line 33 ~ CreateGraph ~ collectionX', collectionX);
   const [collections, setCollections] = React.useState([]);
   const [collectionXAttribute, setCollectionXAttribute] = React.useState('');
 
@@ -73,57 +71,65 @@ const CreateGraph = () => {
         title="Create new Graph"
         as="h2"
       />
-      <Box padding={8}>
-        <TextInput
-          placeholder="This is a graphTitle placeholder"
-          label="Graph Title"
-          name="graphTitle"
-          onChange={(e) => setGraphTitle(e.target.value)}
-          value={graphTitle}
-        />
-        <Select
-          required
-          id="graph-type"
-          label="Graph Type"
-          placeholder="Select graph type"
-          onClear={() => setGraphType(undefined)}
-          onChange={setGraphType}
-          value={graphType}
-          clearLabel="Clear"
-        >
-          <Option value="pie">Pie</Option>
-          <Option value="line">Line</Option>
-        </Select>
-        <Select
-          required
-          id="collection-x-type"
-          label="Collection X Type"
-          placeholder="Select collection type"
-          onClear={() => setCollectionX(undefined)}
-          onChange={(uid) => setCollectionX(collections.find((c) => c.uid === uid))}
-          value={collectionX}
-          clearLabel="Clear"
-        >
-          {collections.map((coll) => (
-            <Option value={coll.uid}>{coll.name}</Option>
-          ))}
-        </Select>
-        {!!collectionX && (
+      <Box padding={8} style={{ paddingTop: 0 }}>
+        <Box padding={4}>
+          <TextInput
+            placeholder="This is a graphTitle placeholder"
+            label="Graph Title"
+            name="graphTitle"
+            onChange={(e) => setGraphTitle(e.target.value)}
+            value={graphTitle}
+          />
+        </Box>
+        <Box padding={4}>
           <Select
             required
-            id="collection-x-attr"
-            label="Collection X Attributes"
-            placeholder="Select collection attribute"
-            onClear={() => setCollectionXAttribute(undefined)}
-            onChange={setCollectionXAttribute}
-            value={collectionXAttribute}
+            id="graph-type"
+            label="Graph Type"
+            placeholder="Select graph type"
+            onClear={() => setGraphType(undefined)}
+            onChange={setGraphType}
+            value={graphType}
             clearLabel="Clear"
           >
-            {collectionX.attributes.map((attr) => (
-              <Option value={attr}>{attr}</Option>
+            <Option value="pie">Pie</Option>
+            <Option value="line">Line</Option>
+          </Select>
+        </Box>
+        <Box padding={4}>
+          <Select
+            required
+            id="collection-x-type"
+            label="Collection X Type"
+            placeholder="Select collection type"
+            onClear={() => setCollectionX(undefined)}
+            onChange={(uid) => setCollectionX(collections.find((c) => c.uid === uid))}
+            value={collectionX?.uid}
+            clearLabel="Clear"
+          >
+            {collections.map((coll) => (
+              <Option value={coll.uid}>{coll.name}</Option>
             ))}
           </Select>
-        )}
+        </Box>
+        <Box padding={4}>
+          {!!collectionX && (
+            <Select
+              required
+              id="collection-x-attr"
+              label="Collection X Attributes"
+              placeholder="Select collection attribute"
+              onClear={() => setCollectionXAttribute(undefined)}
+              onChange={setCollectionXAttribute}
+              value={collectionXAttribute}
+              clearLabel="Clear"
+            >
+              {collectionX.attributes.map((attr) => (
+                <Option value={attr}>{attr}</Option>
+              ))}
+            </Select>
+          )}
+        </Box>
       </Box>
       <Box padding={8} style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
         <GraphCard title={graphTitle} graphType={graphType} />

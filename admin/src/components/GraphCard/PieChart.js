@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Tooltip, Sector, Cell } from 'recharts';
 
 const data = [
   { name: 'Group A', value: 400 },
@@ -34,7 +34,7 @@ const PieChartComponent = ({ title }) => {
           cy="50%"
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={80}
+          outerRadius={100}
           fill="#8884d8"
           dataKey="value"
         >
@@ -42,6 +42,7 @@ const PieChartComponent = ({ title }) => {
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
+        <Tooltip />
       </PieChart>
     </>
   );
