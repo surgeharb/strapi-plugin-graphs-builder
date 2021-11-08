@@ -31,7 +31,7 @@ module.exports = {
     },
     type: {
       type: 'enumeration',
-      enum: ['pie', 'line'],
+      enum: ['pie', 'line', 'dateLine'],
       configurable: false,
       required: true,
     },
@@ -43,7 +43,6 @@ module.exports = {
     collectionXAttribute: {
       type: 'string',
       configurable: false,
-      required: true,
     },
   },
 

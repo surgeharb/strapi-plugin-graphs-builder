@@ -104,6 +104,7 @@ const CreateGraph = () => {
           >
             <Option value="pie">Pie</Option>
             <Option value="line">Line</Option>
+            <Option value="dateLine">Date Line</Option>
           </Select>
         </Box>
         <Box padding={4}>
@@ -123,7 +124,7 @@ const CreateGraph = () => {
           </Select>
         </Box>
         <Box padding={4}>
-          {!!collectionX && (
+          {!!collectionX && graphType !== 'dateLine' && (
             <Select
               required
               id="collection-x-attr"
