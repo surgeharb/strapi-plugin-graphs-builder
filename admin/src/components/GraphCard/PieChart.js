@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import { PieChart, Pie, Tooltip, Sector, Cell } from 'recharts';
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+const DEFAULT_DATA = [
+  { name: 'A', value: 400 },
+  { name: 'B', value: 300 },
+  { name: 'C', value: 300 },
+  { name: 'D', value: 200 },
 ];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -23,7 +23,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   );
 };
 
-const PieChartComponent = ({ title }) => {
+const PieChartComponent = ({ title, data = DEFAULT_DATA }) => {
   return (
     <>
       <h3 style={{ marginLeft: 24 }}>{title}</h3>
