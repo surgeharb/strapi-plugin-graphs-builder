@@ -11,6 +11,14 @@ module.exports = {
     pluralName: 'graphs',
     displayName: 'Graph',
   },
+  pluginOptions: {
+    'content-manager': {
+      visible: false,
+    },
+    'content-type-builder': {
+      visible: process.env.NODE_ENV === 'development',
+    },
+  },
   options: {
     draftAndPublish: false,
     timestamps: true,

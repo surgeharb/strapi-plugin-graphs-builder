@@ -5,6 +5,7 @@
  */
 
 import React, { memo, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import pluginId from '../../pluginId';
 import GraphCard from '../../components/GraphCard';
 import CollectionSelect from '../../components/CollectionSelect';
@@ -26,6 +27,8 @@ import { Select, Option } from '@strapi/design-system/Select';
 import { ModalLayout, HeaderLayout } from '@strapi/design-system/Layout';
 
 const CreateGraph = () => {
+  const history = useHistory();
+
   const [graphType, setGraphType] = React.useState('pie');
   const [graphTitle, setGraphTitle] = React.useState('');
   const [collectionX, setCollectionX] = React.useState();
@@ -33,12 +36,19 @@ const CreateGraph = () => {
   const [collectionXAttribute, setCollectionXAttribute] = React.useState('');
 
   const goBack = () => {
-    window.location = `/plugins/${pluginId}`;
+    history.goBack();
   };
 
-  const saveGraph = () => {
-    alert('Save Graph!');
-    window.location = `/plugins/${pluginId}`;
+  const saveGraph = async () => {
+    const data = {
+      type: graphType,
+      title: graphTitle,
+      collectionX: collectionX.uid,
+      collectionXAttribute: collectionXAttribute,
+    };
+
+    await axiosInstance.post(`/${pluginId}/graphs`, data);
+    goBack();
   };
 
   useEffect(async () => {

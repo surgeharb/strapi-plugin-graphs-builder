@@ -1,8 +1,9 @@
 'use strict';
 
-const { sanitize } = require('@strapi/utils');
-const { getService } = require('../utils');
 const _ = require('lodash');
+const { sanitize } = require('@strapi/utils');
+const { CREATED_BY_ATTRIBUTE, UPDATED_BY_ATTRIBUTE } = require('../constants');
+const { getService } = require('../utils');
 
 const sanitizeOutput = (data, ctx) => {
   const schema = strapi.getModel('plugin::graphs-builder.graph');
