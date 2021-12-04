@@ -5,7 +5,6 @@ import GraphIcon from './components/GraphIcon';
 import Initializer from './components/Initializer';
 
 const pluginDescription = pluginPkg.strapi.description || pluginPkg.description;
-const kebabCaseName = pluginPkg.name;
 const name = pluginPkg.strapi.name;
 
 export default {
@@ -25,7 +24,7 @@ export default {
     });
     app.registerPlugin({
       id: pluginId,
-      name: kebabCaseName,
+      name,
     });
   },
 
