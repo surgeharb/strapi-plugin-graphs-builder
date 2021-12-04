@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-graphs-builder",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A plugin for Strapi Headless CMS that provides graphs building tool to generate custom dashboards and reports with the data inside Strapi's database.",
   "strapi": {
     "kind": "plugin",
