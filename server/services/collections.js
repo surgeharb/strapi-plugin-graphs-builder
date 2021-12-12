@@ -3,9 +3,9 @@ const { getService } = require('../utils');
 const { PLUGINS_INCLUDED, ATTRIBUTES_EXCLUDED } = require('../constants');
 
 const getAttributes = (collection) => {
-  return Object.keys(collection.attributes).filter(
-    (attribute) => !ATTRIBUTES_EXCLUDED.includes(attribute)
-  );
+  return Object.entries(collection.attributes)
+    .filter(([key, value]) => !value.private && !ATTRIBUTES_EXCLUDED.includes(key))
+    .map(([key]) => key);
 };
 
 module.exports = ({ strapi }) => {
@@ -17,8 +17,8 @@ module.exports = ({ strapi }) => {
 
   const updateCollections = () => {
     const collections = Object.values(strapi.contentTypes)
-      .map((type) => ({ uid: type.uid, attributes: getAttributes(type) }))
-      .filter((type) => type.uid.startsWith('api::') || PLUGINS_INCLUDED.includes(type.uid));
+      .filter((type) => type.uid.startsWith('api::') || PLUGINS_INCLUDED.includes(type.uid))
+      .map((type) => ({ uid: type.uid, attributes: getAttributes(type) }));
 
     savedCollections = [...collections];
     return collections;

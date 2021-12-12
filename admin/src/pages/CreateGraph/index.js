@@ -47,6 +47,10 @@ const CreateGraph = () => {
       collectionXAttribute: collectionXAttribute,
     };
 
+    if (graphType === 'dateLine') {
+      data.collectionXAttribute = 'created_at';
+    }
+
     await axiosInstance.post(`/${pluginId}/graphs`, data);
     goBack();
   };

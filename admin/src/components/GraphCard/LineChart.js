@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 
-const data = [
+const DEFAULT_DATA = [
   { name: 'A', value: 400 },
   { name: 'B', value: 200 },
   { name: 'C', value: 300 },
@@ -9,7 +9,7 @@ const data = [
   { name: 'E', value: 150 },
 ];
 
-const LineChartComponent = ({ title }) => {
+const LineChartComponent = ({ title, data = DEFAULT_DATA }) => {
   return (
     <>
       <h3 style={{ marginLeft: 24, marginBottom: 24 }}>{title}</h3>
