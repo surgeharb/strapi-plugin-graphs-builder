@@ -12,6 +12,9 @@
     "publish:minor": "npm version minor && npm publish",
     "publish:major": "npm version major && npm publish"
   },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.0.0"
+  },
   "dependencies": {
     "recharts": "^2.1.6"
   },

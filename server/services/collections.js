@@ -1,11 +1,12 @@
 'use strict';
 const { getService } = require('../utils');
-const { PLUGINS_INCLUDED } = require('../constants');
+const { PLUGINS_INCLUDED, ATTRIBUTES_EXCLUDED } = require('../constants');
 
-const getAttributes = (collection) =>
-  Object.keys(collection.attributes).filter(
-    (attribute) => !['updatedBy', 'createdBy'].includes(attribute)
+const getAttributes = (collection) => {
+  return Object.keys(collection.attributes).filter(
+    (attribute) => !ATTRIBUTES_EXCLUDED.includes(attribute)
   );
+};
 
 module.exports = ({ strapi }) => {
   let savedCollections = [];

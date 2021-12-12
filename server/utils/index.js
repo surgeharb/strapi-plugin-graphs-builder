@@ -6,7 +6,7 @@ const groupByCount = async (connection, table, groupingField) => {
   try {
     const result = await connection(table).groupBy(groupingField).select(groupingField).count();
     return result.map((item) => ({
-      name: item[groupingField],
+      name: item[groupingField.toLowerCase()],
       value: item['count(*)'],
     }));
   } catch (error) {

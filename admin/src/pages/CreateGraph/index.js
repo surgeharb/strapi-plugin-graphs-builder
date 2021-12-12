@@ -103,6 +103,7 @@ const CreateGraph = () => {
             clearLabel="Clear"
           >
             <Option value="pie">Pie</Option>
+            <Option value="bar">Bar</Option>
             <Option value="line">Line</Option>
             <Option value="dateLine">Date Line</Option>
           </Select>
@@ -119,7 +120,9 @@ const CreateGraph = () => {
             clearLabel="Clear"
           >
             {collections.map((coll) => (
-              <Option value={coll.uid}>{coll.name}</Option>
+              <Option value={coll.uid} id={coll.uid}>
+                {coll.name}
+              </Option>
             ))}
           </Select>
         </Box>
@@ -136,7 +139,9 @@ const CreateGraph = () => {
               clearLabel="Clear"
             >
               {collectionX.attributes.map((attr) => (
-                <Option value={attr}>{attr}</Option>
+                <Option value={attr} id={attr}>
+                  {attr}
+                </Option>
               ))}
             </Select>
           )}

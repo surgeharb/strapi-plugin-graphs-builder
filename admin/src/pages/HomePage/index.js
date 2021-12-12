@@ -65,8 +65,13 @@ const HomePage = () => {
             padding: '0 56px',
           }}
         >
-          {graphs.map(({ title, type, graphData }) => (
-            <GraphCard title={title} graphType={type} data={graphData} />
+          {graphs.map(({ title, type, graphData, attributeData }) => (
+            <GraphCard
+              title={title}
+              data={graphData}
+              graphType={type}
+              attributeData={attributeData}
+            />
           ))}
         </Box>
       </Layout>

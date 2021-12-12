@@ -6,6 +6,7 @@
 
 import React from 'react';
 import PieChart from './PieChart';
+import BarChart from './BarChart';
 import LineChart from './LineChart';
 import DateLineChart from './DateLineChart';
 
@@ -17,6 +18,7 @@ const GraphCard = ({ title, graphType, data }) => (
     <Box style={{ padding: '24px 0 16px 0', paddingRight: graphType === 'pie' ? '0' : '32px' }}>
       {graphType === 'dateLine' && <DateLineChart title={title} />}
       {graphType === 'pie' && <PieChart {...{ title, data }} />}
+      {graphType === 'bar' && <BarChart {...{ title, data }} />}
       {graphType === 'line' && <LineChart title={title} />}
     </Box>
   </Card>

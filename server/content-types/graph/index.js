@@ -13,7 +13,7 @@ module.exports = {
   },
   pluginOptions: {
     'content-manager': {
-      visible: false,
+      visible: process.env.NODE_ENV === 'development',
     },
     'content-type-builder': {
       visible: process.env.NODE_ENV === 'development',
@@ -31,7 +31,7 @@ module.exports = {
     },
     type: {
       type: 'enumeration',
-      enum: ['pie', 'line', 'dateLine'],
+      enum: ['pie', 'bar', 'line', 'dateLine'],
       configurable: false,
       required: true,
     },
